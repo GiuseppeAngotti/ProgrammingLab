@@ -1,4 +1,4 @@
-def sum_csv(shampoo_sales):
+def sum_csv(nome_file):
     #creo una lista vuota per poter aggiungere di volta in volta i valori che mi servono dal file
     values=[] 
     #apro il file su cui voglio lavorare in lettura e lo assegno all'oggetto file
