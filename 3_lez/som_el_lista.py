@@ -3,8 +3,6 @@ def sum_csv(nome_file):
     values=[] 
     #apro il file su cui voglio lavorare in lettura e lo assegno all'oggetto file
     file=open(nome_file,'r') 
-
-    sum=0
     
     #eseguo un ciclo linea per linea del mio file, poichè è considerato come una stringa 
     for line in file:
@@ -18,9 +16,8 @@ def sum_csv(nome_file):
     file.close()
     if(len(values)==0):
         return None
-    for item in values:
-        sum+=item
-    return sum
+    else:
+        return sum(values)
 
 
 risultato=sum_csv('shampoo_sales.csv')
