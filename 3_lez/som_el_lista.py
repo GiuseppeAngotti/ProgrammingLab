@@ -2,7 +2,7 @@ def sum_csv(nome_file):
     #creo una lista vuota per poter aggiungere di volta in volta i valori che mi servono dal file
     values=[] 
     #apro il file su cui voglio lavorare in lettura e lo assegno all'oggetto file
-    file=open('shampoo_sales.csv','r') 
+    file=open(nome_file,'r') 
 
     sum=0
     
