@@ -15,6 +15,6 @@ def sum_csv(nome_file):
     return somma
 
 
-risultato=sum_csv('shampoo_sales.csv')
+#risultato=sum_csv('shampoo_sales.csv')
 
-print('La somma degli elementi è uguale a: {}'.format(risultato))
+#print('La somma degli elementi è uguale a: {}'.format(risultato))
