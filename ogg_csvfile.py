@@ -10,7 +10,8 @@ class CSVFile():
             elements=line.strip('\n').split(',')
             if elements[0]!='Date':
                 list_list.append(elements)
-        print('{}'.format(list_list))
+        return list_list
 
-file_csv= CSVFile('shampoo_sales.csv')
-file_csv.get_data()
+#file_csv= CSVFile('shampoo_sales.csv')
+
+#print('{}'.format(file_csv.get_data()))
