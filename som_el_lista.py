@@ -20,8 +20,7 @@ def sum_csv(nome_file):
     file.close()
     if(somma==0.0 or c==1):
         return None
-    else:
-        return somma
+    return somma
 
 
 #risultato=sum_csv('shampoo_sales.csv')
