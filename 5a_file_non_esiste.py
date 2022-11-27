@@ -15,6 +15,6 @@ class CSVFile():
         except:
             print('Errore il file che stavi cercando non esiste')
             
-file_csv= CSVFile('shampoo_sales.csv')
+#file_csv= CSVFile('shampoo_sales.csv')
 
-file_csv.get_data()
+#file_csv.get_data()
