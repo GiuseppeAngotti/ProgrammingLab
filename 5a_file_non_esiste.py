@@ -11,9 +11,10 @@ class CSVFile():
                 if elements[0]!='Date':
                     list_list.append(elements)
             file.close()
-            print('{}'.format(list_list))
+            return(list_list)
         except:
             print('Errore il file che stavi cercando non esiste')
+            return None
             
 #file_csv= CSVFile('shampoo_sales.csv')
 
