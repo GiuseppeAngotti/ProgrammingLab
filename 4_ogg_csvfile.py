@@ -10,6 +10,7 @@ class CSVFile():
             elements=line.strip('\n').split(',')
             if elements[0]!='Date':
                 list_list.append(elements)
+        file.close()
         return list_list
 
 #file_csv= CSVFile('shampoo_sales.csv')
