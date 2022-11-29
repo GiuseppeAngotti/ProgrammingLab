@@ -23,11 +23,12 @@ class NumericalCSVFile(CSVFile):
             try:
                 i[1]=float(i[1])
                 #print(isinstance(i[1],float))
-                print('{}'.format(i[1]))
+                #print('{}'.format(i[1]))
             except ValueError:
                 print('Errore 1il dato che si presumeva float non lo è!')
             except TypeError:
                 print('Errore 2il dato che si presumeva float non lo è!')
+        return lista_lista
             
 #file_csv= NumericalCSVFile('shampoo_sales.csv')
 
