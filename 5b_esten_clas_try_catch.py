@@ -16,8 +16,9 @@ class CSVFile():
             print('Errore il file che stavi cercando non esiste')
 
 class NumericalCSVFile(CSVFile):   
-    def conv_float(self):
+    def get_data(self):
         lista_lista=super().get_data()
+        #print(lista_lista)
         for i in lista_lista:
             try:
                 i[1]=float(i[1])
@@ -30,4 +31,4 @@ class NumericalCSVFile(CSVFile):
             
 #file_csv= NumericalCSVFile('shampoo_sales.csv')
 
-#file_csv.conv_float()
+#file_csv.get_data()
