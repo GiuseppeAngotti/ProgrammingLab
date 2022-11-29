@@ -29,6 +29,7 @@ class NumericalCSVFile(CSVFile):
             except TypeError:
                 print('Errore 2il dato che si presumeva float non lo è!')
         return lista_lista
+        
             
 #file_csv= NumericalCSVFile('shampoo_sales.csv')
 
