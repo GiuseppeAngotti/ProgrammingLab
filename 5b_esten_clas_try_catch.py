@@ -19,15 +19,20 @@ class NumericalCSVFile(CSVFile):
     def get_data(self):
         lista_lista=super().get_data()
         #print(lista_lista)
-        for i in lista_lista:
-            try:
-                i[1]=float(i[1])
-                #print(isinstance(i[1],float))
-                #print('{}'.format(i[1]))
-            except ValueError:
-                print('Errore 1il dato che si presumeva float non lo è!')
-            except TypeError:
-                print('Errore 2il dato che si presumeva float non lo è!')
+        for l in lista_lista:
+            for i,item in enumerate(l):
+                try:
+                    if i!=0:
+                        l[i]=float(item)
+                        #print(isinstance(item[1],float))
+                        #print('{}'.format(item[1]))
+                except ValueError:
+                    print('Errore 1il dato che si presumeva float non lo è!')
+                except TypeError:
+                    print('Errore 2il dato che si presumeva float non lo è!')
+                except Exception as e:
+                    print('Errore generico: {}'.format(e))
+                
         return lista_lista
         
             
