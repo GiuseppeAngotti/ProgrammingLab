@@ -94,6 +94,16 @@ class CSVFile:
 #sovrascrivere il metodo 'get_data()' trasformando in float #alcuni valori
 class NumericalCSVFile(CSVFile):   
     def get_data(self, start=None, end=None):
+        self.start=start
+        self.end=end
+
+        if self.start==None:
+            self.start=1
+            print('{}'.format(self.start))
+        if self.end==None:
+            self.end=-1
+            print('{}'.format(self.end))
+        
         
         #il metodo built-in 'super()' mi permette di utilizzare 
         #metodi della classe genitore.
