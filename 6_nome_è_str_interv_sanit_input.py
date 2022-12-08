@@ -116,7 +116,7 @@ class NumericalCSVFile(CSVFile):
             for i,item in enumerate(l):
                 #qui provo la conversione a float
                 if i!=0:
-                    if item!='Sales'
+                    if item!='Sales':
                         try:
                                 l[i]=float(item)
                                 #print(isinstance(item[1],float))
