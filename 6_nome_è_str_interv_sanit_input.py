@@ -134,3 +134,4 @@ class NumericalCSVFile(CSVFile):
 #file_csv= NumericalCSVFile('shampoo_sales.csv')
 
 #file_csv.get_data()
+        
