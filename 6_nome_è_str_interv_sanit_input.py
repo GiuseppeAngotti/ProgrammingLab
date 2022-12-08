@@ -93,7 +93,7 @@ class CSVFile:
 #'NumericalCSVFile' estende la classe 'CSVFile' andando a 
 #sovrascrivere il metodo 'get_data()' trasformando in float #alcuni valori
 class NumericalCSVFile(CSVFile):   
-    def get_data(self):
+    def get_data(self, start=None, end=None):
         
         #il metodo built-in 'super()' mi permette di utilizzare 
         #metodi della classe genitore.
