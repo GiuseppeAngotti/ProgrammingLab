@@ -107,6 +107,7 @@ class NumericalCSVFile(CSVFile):
         #ritorna il metodo 'get_data() della mia classe 
         #genitore 'CSVFile'
         lista_lista=super().get_data()
+        
         #print(lista_lista)
         for l in lista_lista:
             #'enumerate()' è un metodo che aggiunge un 
