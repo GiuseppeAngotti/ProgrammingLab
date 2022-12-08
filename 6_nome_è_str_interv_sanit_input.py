@@ -50,7 +50,14 @@ class CSVFile:
     #(sapendo che il mio file è organizato in righe e colonne, 
     #dove ogni colonna ha un informazione) definisco un metodo 
     #che divide i dati e li memorizza, eliminando l'intestazione
-    def get_data(self):#da add , start=None, end=None
+    def get_data(self, start=None, end=None):
+        self.start=start
+        self.end=end
+
+        if self.start==None:
+            self.start=1
+        if self.end==None:
+            self.end=-1
 
         #In generale 'if' quando ha una condizione con un solo 
         #elemento verifica se questo elemento sia vero 
@@ -85,25 +92,14 @@ class CSVFile:
                 elements=line.strip('\n').split(',')
                 #aggiungi alla mia lista di liste tutti gli 
                 #array con valori eccetto l'intestazione
-                if elements[0]!='Date':
-                    list_list.append(elements)
+                list_list.append(elements)
             file.close()
             return(list_list)
 
 #'NumericalCSVFile' estende la classe 'CSVFile' andando a 
 #sovrascrivere il metodo 'get_data()' trasformando in float #alcuni valori
 class NumericalCSVFile(CSVFile):   
-    def get_data(self, start=None, end=None):
-        self.start=start
-        self.end=end
-
-        if self.start==None:
-            self.start=1
-            print('{}'.format(self.start))
-        if self.end==None:
-            self.end=-1
-            print('{}'.format(self.end))
-        
+    def get_data(self):
         
         #il metodo built-in 'super()' mi permette di utilizzare 
         #metodi della classe genitore.
@@ -113,7 +109,6 @@ class NumericalCSVFile(CSVFile):
         lista_lista=super().get_data()
         #print(lista_lista)
         for l in lista_lista:
-
             #'enumerate()' è un metodo che aggiunge un 
             #contatore a un ciclo, restituendo sia il valore 
             #del contatore 'i' sia l'elemento i-esimo e nei 
@@ -121,20 +116,21 @@ class NumericalCSVFile(CSVFile):
             for i,item in enumerate(l):
                 #qui provo la conversione a float
                 if i!=0:
-                    try:
-                            l[i]=float(item)
-                            #print(isinstance(item[1],float))
-                            #print('{}'.format(item[1]))
-                    except ValueError:
-                        print('Errore il dato che si presumeva float non lo è! Lo ha generato: {}'.format(l[i]))
-                    except TypeError:
-                        print('Errore hai sbagliato il tipo di dato!')
-                    except Exception as e:
-                        print('Errore generico: {}'.format(e))
+                    if item!='Sales'
+                        try:
+                                l[i]=float(item)
+                                #print(isinstance(item[1],float))
+                                #print('{}'.format(item[1]))
+                        except ValueError:
+                            print('Errore il dato che si presumeva float non lo è! Lo ha generato: {}'.format(l[i]))
+                        except TypeError:
+                            print('Errore hai sbagliato il tipo di dato!')
+                        except Exception as e:
+                            print('Errore generico: {}'.format(e))
                 
         return lista_lista
         
             
-#file_csv= NumericalCSVFile('shampoo_sales.csv')
+file_csv= NumericalCSVFile('shampoo_sales.csv')
 
-#file_csv.get_data()
+file_csv.get_data()
