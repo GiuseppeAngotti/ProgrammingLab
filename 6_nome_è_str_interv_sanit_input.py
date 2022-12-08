@@ -125,6 +125,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-file_csv= NumericalCSVFile('shampoo_sales.csv')
+#file_csv= NumericalCSVFile('shampoo_sales.csv')
 
-file_csv.get_data()
+#file_csv.get_data()
