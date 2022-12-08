@@ -1,4 +1,4 @@
-class CSVFile():
+class CSVFile:
     def __init__(self,name):
         self.name=name
 
@@ -27,9 +27,10 @@ class NumericalCSVFile(CSVFile):
                         #print(isinstance(item[1],float))
                         #print('{}'.format(item[1]))
                 except ValueError:
-                    print('Errore 1il dato che si presumeva float non lo è!')
+                    print('Errore il dato che si presumeva float non lo è! Lo ha generato: {}'.format(item))
+                    #al posto di 'item' potevo mettere l[i] o l[1]
                 except TypeError:
-                    print('Errore 2il dato che si presumeva float non lo è!')
+                    print('Errore hai sbagliato il tipo di dato!')
                 except Exception as e:
                     print('Errore generico: {}'.format(e))
                 
