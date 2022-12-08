@@ -1,7 +1,7 @@
 #definizione dell'oggetto (categoria): files di tipo CSV;
 #quindi creazione della classe CSVFile per indicare tale 
 #categoria 
-class CSVFile():
+class CSVFile:
     
     #creazione del metodo costruttore: 
     #    gli passo come argomento il nome del mio file su cui 
