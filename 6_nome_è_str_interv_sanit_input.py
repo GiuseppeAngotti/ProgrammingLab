@@ -22,7 +22,7 @@ class CSVFile:
         #creo un attributo booleano per memorizzare il successo 
         #o meno dell'apertura di un file, soprattutto per sapere 
         #nelle classi estese o in altri metodi se il mio file è 
-        #stato aperto o no
+        #stato: aperto o non aperto
         self.can_read=True
         
         #provo ad aprire il file e leggere una linea
@@ -67,9 +67,8 @@ class CSVFile:
         #not nega il significato booleano
         #-------------------------------------------------------
         #nel nostro caso chiedo se l'attributo del metodo 
-        #costruttore durante l'istanzanziamento di un oggetto è 
-        #uguale a 'False' cioè se il file si può aprire oppure 
-        #no
+        #costruttore durante l'istanzanziamento di un oggetto 
+        #è uguale a 'False' cioè se il file si può aprire              #oppure no
         if not self.can_read:
             #il file non poteva essere aperto o era illeggibile
             print('Errore, file non aperto o illeggibile')
