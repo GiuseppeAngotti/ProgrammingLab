@@ -83,6 +83,7 @@ def sum_csv(nome_file):
     #'sum()' è una funzione built-in che permette di sommare tutti gli elementi di una lista (in questo caso dell'array)
     return sum(values)
 
+
 #risultato=sum_csv('shampoo_sales.csv')
 
 #print('La somma degli elementi è uguale a: {}'.format(risultato))
