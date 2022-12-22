@@ -62,6 +62,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-file_csv= NumericalCSVFile('vuoto.csv')
+#file_csv= NumericalCSVFile('vuoto.csv')
 
-print('{}'.format(file_csv.get_data()))
+#print('{}'.format(file_csv.get_data()))
