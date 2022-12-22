@@ -71,9 +71,8 @@ class CSVFile:
         #è uguale a 'False' cioè se il file si può aprire              #oppure no
         if not self.can_read:
             #il file non poteva essere aperto o era illeggibile
-            print('Errore, file non aperto o illeggibile')
+            raise Exception('Errore, file non aperto o illeggibile')
             return None
-
         else:
             #sono riuscito ad aprire il mio file e a leggerlo
             
@@ -131,6 +130,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-#file_csv= NumericalCSVFile('shampoo_sales.csv')
+file_csv= NumericalCSVFile('ll.csv')
 
-#file_csv.get_data()
+print('{}'.format(file_csv.get_data()))
