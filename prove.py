@@ -25,7 +25,7 @@ class CSVFile:
             self.end=-1
             
         if not self.can_read:
-            raise Exception('Errore, file non aperto o illeggibile')
+            print('Errore, file non aperto o illeggibile')
             return None
             
         else:
@@ -37,7 +37,7 @@ class CSVFile:
                 list_list.append(elements)
             file.close()
             if(len(list_list)==0):
-                raise Exception('Il file è vuoto')
+                return None
             return(list_list)
 
 class NumericalCSVFile(CSVFile):   
