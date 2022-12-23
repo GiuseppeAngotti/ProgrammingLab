@@ -16,13 +16,6 @@ class CSVFile:
             print('Errore in apertura del file: {}\n'.format(e))
 
     def get_data(self, start=None, end=None):
-        self.start=start
-        self.end=end
-
-        if self.start==None:
-            self.start=0
-        if self.end==None:
-            self.end=-1
 
         if not self.can_read:
             print('Errore, file non aperto o illeggibile')
@@ -31,12 +24,35 @@ class CSVFile:
         else:
             list_list=[]
             file=open(self.name,'r')
-            for i, line in enumerate(file):
-                if i in range(self.start,-1):
-                    elements=line.strip('\n').split(',')
-                    list_list.append(elements)
+            
+            if start==None:
+                start=1
+
+            if start==1:
+                if end==None:
+                    for line in file:
+                        elements=line.strip('\n').split(',')
+                        if elements[0]!='Date':
+                            list_list.append(elements)
+                else:
+                    for i, line in enumerate(file):
+                        if i in range(1,(1+end)):
+                            elements=line.strip('\n').split(',')
+                            if elements[0]!='Date':
+                                list_list.append(elements)
                 
-                
+            else:
+                if end==None:
+                    for i, line in enumerate(file):
+                        if i>=start:
+                            elements=line.strip('\n').split(',')
+                            list_list.append(elements)
+                else:
+                    for i, line in enumerate(file):
+                        if i in range(start,(1+end)):
+                            elements=line.strip('\n').split(',')
+                            list_list.append(elements)
+            
             print(list_list)
             #for line in file in range(self.start,self.end):
                 #print('start={}'.format(self.start))
@@ -71,6 +87,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-file_csv= CSVFile('shampoo_sales.csv')
-file_csv.get_data(2)
+#file_csv= CSVFile('shampoo_sales.csv')
+#file_csv.get_data()#end esplicito esempio end=5
 #print('{}'.format(file_csv.get_data(1,4)))
