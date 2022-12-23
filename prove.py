@@ -20,10 +20,10 @@ class CSVFile:
         self.end=end
 
         if self.start==None:
-            self.start=1
+            self.start=0
         if self.end==None:
             self.end=-1
-            
+
         if not self.can_read:
             print('Errore, file non aperto o illeggibile')
             return None
@@ -31,18 +31,26 @@ class CSVFile:
         else:
             list_list=[]
             file=open(self.name,'r')
-            for line in file:
-                elements=line.strip('\n').split(',')
-
-                list_list.append(elements)
+            for i, line in enumerate(file):
+                if i in range(self.start,-1):
+                    elements=line.strip('\n').split(',')
+                    list_list.append(elements)
+                
+                
+            print(list_list)
+            #for line in file in range(self.start,self.end):
+                #print('start={}'.format(self.start))
+                #elements=line.strip('\n').split(',')
+                #list_list.append(elements)
+                #print('{}'.format(list_list))
             file.close()
             if(len(list_list)==0):
                 return None
             return(list_list)
 
 class NumericalCSVFile(CSVFile):   
-    def get_data(self):
-        lista_lista=super().get_data()
+    def get_data(self):#, *args, **kwargs
+        lista_lista=super().get_data()#*args, **kwargs
         if lista_lista!=None:
         #print(lista_lista)
             for l in lista_lista:
@@ -63,6 +71,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-#file_csv= NumericalCSVFile('vuoto.csv')
-
-#print('{}'.format(file_csv.get_data()))
+file_csv= CSVFile('shampoo_sales.csv')
+file_csv.get_data(2)
+#print('{}'.format(file_csv.get_data(1,4)))
