@@ -24,6 +24,12 @@ class CSVFile:
         else:
             file=open(self.name,'r')
             list_list=[]
+
+            if not isinstance(start, int) and start is not None:
+                raise Exception('start va di tipo intero')
+            if not isinstance(end, int) and end is not None:
+                raise Exception('end va di tipo intero')
+                
             for line in file:
                 elements=line.strip('\n').split(',')
                 if elements[0]!='Date':
@@ -56,5 +62,5 @@ class NumericalCSVFile(CSVFile):
         
             
 #file_csv= CSVFile('shampoo_sales.csv')
-#file_csv.get_data(5)#end esplicito esempio end=5
-#print('{}'.format(file_csv.get_data(1,4)))
+#file_csv.get_data(io)#end esplicito esempio end=5
+#print('{}'.format(file_csv.get_data()))
