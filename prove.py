@@ -25,6 +25,12 @@ class CSVFile:
             list_list=[]
             file=open(self.name,'r')
 
+            if start>end:
+                raise Exception('Il valore iniziale è più grande di quello finale')
+            if start<1:
+                raise Exception('Il valore iniziale è sbagliato')
+            
+
             if start == 1:
                 list_list=[]
             
