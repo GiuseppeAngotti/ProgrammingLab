@@ -1,9 +1,7 @@
 class CSVFile:
     def __init__(self,name):
-
-        if isinstance(name, str):
-            self.name=name
-        else:
+        self.name=name
+        if not isinstance(name, str):
             raise Exception('Il nome del file non è una stringa')
             
         self.can_read=True
