@@ -25,8 +25,6 @@ class CSVFile:
             list_list=[]
             file=open(self.name,'r')
 
-            if start>end:
-                raise Exception('Il valore iniziale è più grande di quello finale')
             if start<1:
                 raise Exception('Il valore iniziale è sbagliato')
             
@@ -56,6 +54,8 @@ class CSVFile:
                             elements=line.strip('\n').split(',')
                             list_list.append(elements)
                 else:
+                    if start>end:
+                        raise Exception('Il valore iniziale è più grande di quello finale')
                     for i, line in enumerate(file):
                         if i in range(start,(1+end)):
                             elements=line.strip('\n').split(',')
