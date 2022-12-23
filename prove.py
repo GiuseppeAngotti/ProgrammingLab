@@ -43,21 +43,22 @@ class CSVFile:
 class NumericalCSVFile(CSVFile):   
     def get_data(self):
         lista_lista=super().get_data()
+        if lista_lista!=None:
         #print(lista_lista)
-        for l in lista_lista:
-            for i,item in enumerate(l):
-                if i!=0:
-                    if item!='Sales':
-                        try:
-                                l[i]=float(item)
-                                #print(isinstance(item[1],float))
-                                #print('{}'.format(item[1]))
-                        except ValueError:
-                            print('Errore il dato che si presumeva float non lo è! Lo ha generato: {}'.format(l[i]))
-                        except TypeError:
-                            print('Errore hai sbagliato il tipo di dato!')
-                        except Exception as e:
-                            print('Errore generico: {}'.format(e))
+            for l in lista_lista:
+                for i,item in enumerate(l):
+                    if i!=0:
+                        if item!='Sales':
+                            try:
+                                    l[i]=float(item)
+                                    #print(isinstance(item[1],float))
+                                    #print('{}'.format(item[1]))
+                            except ValueError:
+                                print('Errore il dato che si presumeva float non lo è! Lo ha generato: {}'.format(l[i]))
+                            except TypeError:
+                                print('Errore hai sbagliato il tipo di dato!')
+                            except Exception as e:
+                                print('Errore generico: {}'.format(e))
                 
         return lista_lista
         
