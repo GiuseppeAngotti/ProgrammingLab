@@ -1,7 +1,9 @@
 class CSVFile:
     def __init__(self,name):
-        self.name=name
-        if not isinstance(name, str):
+
+        if isinstance(name, str):
+            self.name=name
+        else:
             raise Exception('Il nome del file non è una stringa')
             
         self.can_read=True
@@ -20,7 +22,8 @@ class CSVFile:
             return None
             
         else:
-            
+            file=open(self.name,'r')
+            list_list=[]
             for line in file:
                 elements=line.strip('\n').split(',')
                 if elements[0]!='Date':
