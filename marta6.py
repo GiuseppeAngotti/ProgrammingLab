@@ -32,7 +32,6 @@ class CSVFile: #definizione della classe
             if start>=end or end>len(lines_in_file) or start<0:
                 raise Exception('Valori di start e/o end non validi')
 
-
             for line in file in range(start, end): #leggo linea per linea nell'intervallo
                 
                 elements = line.split(',') #divido dopo la virgola
