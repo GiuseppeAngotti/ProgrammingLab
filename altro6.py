@@ -33,6 +33,9 @@ class CSVFile:
             if not isinstance(end, int) and end is not None:
                 raise Exception('end va di tipo intero')
 
+            if start is not None and end is not None and start>end:
+                raise Exception('Errore: start è maggiore di end')
+
             if start is not None and start<=0:
                 raise Exception('Il parametro start "{}" non ha un indice accettabile; è sotto il minimo(1) '.format(start))
 
