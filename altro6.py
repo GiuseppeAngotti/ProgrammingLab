@@ -24,16 +24,59 @@ class CSVFile:
         else:
             file=open(self.name,'r')
             list_list=[]
+            n_max=0
+            for line in file:
+                    n_max=n_max+1
 
             if not isinstance(start, int) and start is not None:
                 raise Exception('start va di tipo intero')
             if not isinstance(end, int) and end is not None:
                 raise Exception('end va di tipo intero')
+
+            if start is not None and start<=0:
+                raise Exception('Il parametro start "{}" non ha un indice accettabile; è sotto il minimo(1) '.format(start))
+
+            if start is not None and start>n_max:
+                raise Exception('Il parametro start "{}" non ha un indice accettabile; va oltre il massimo ({})'.format(start,n_max))
+
+            if end is not None and end>n_max:
+                raise Exception('Il parametro end "{}" non ha un indice accettabile; va oltre il massimo ({})'.format(end,n_max))
                 
-            for line in file:
-                elements=line.strip('\n').split(',')
-                if elements[0]!='Date':
-                    list_list.append(elements)
+            if end is not None and end<=0:
+                raise Exception('Il parametro end "{}" non ha un indice accettabile; è sotto il minimo(1)'.format(end))
+
+            if start is None:
+                file=open(self.name,'r')
+                if end is None:
+                    for line in file:
+                        elements=line.strip('\n').split(',')
+                        if elements[0]!='Date':
+                            list_list.append(elements)
+                else:
+                    if end==1:
+                        list_list=[]
+                    else:
+                        for i, line in enumerate(file):
+                            if i<=end:
+                                elements=line.strip('\n').split(',')
+                                if elements[0]!='Date':
+                                    list_list.append(elements)
+            elif start==1:
+                    list_list=[]
+            else:
+                file=open(self.name,'r')
+                if end is None:
+                    for i, line in enumerate(file):
+                        if i>=start:
+                            elements=line.strip('\n').split(',')
+                            if elements[0]!='Date':
+                                list_list.append(elements)
+                else:
+                    for i, line in enumerate(file):
+                        if i>=start and i<=end:
+                            elements=line.strip('\n').split(',')
+                            if elements[0]!='Date':
+                                list_list.append(elements)
 
             file.close()
             return(list_list)
@@ -62,5 +105,5 @@ class NumericalCSVFile(CSVFile):
         
             
 #file_csv= CSVFile('shampoo_sales.csv')
-#file_csv.get_data(io)#end esplicito esempio end=5
-#print('{}'.format(file_csv.get_data()))
+#file_csv.get_data()#end esplicito esempio end=5
+#print('{}'.format(file_csv.get_data(4,9)))

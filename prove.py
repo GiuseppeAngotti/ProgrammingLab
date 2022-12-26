@@ -4,7 +4,7 @@ class CSVFile:
         if isinstance(name, str):
             self.name=name
         else:
-            raise Exception('Il nome del file non è una stringa')
+            raise Exception('Ho avuto un errore. Il nome del file "{}" non e una stringa'.format(name))
             
         self.can_read=True
         
