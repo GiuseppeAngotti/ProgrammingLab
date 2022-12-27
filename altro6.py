@@ -1,5 +1,5 @@
 class CSVFile():
-    def __init__(self,name):
+    def _init_(self,name):
 
         if isinstance(name, str):
             self.name=name
