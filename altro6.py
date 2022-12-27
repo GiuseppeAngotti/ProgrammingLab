@@ -1,5 +1,5 @@
 class CSVFile():
-    def _init_(self,name):
+    def __init__(self,name):
 
         if isinstance(name, str):
             self.name=name
@@ -82,8 +82,8 @@ class CSVFile():
                                 list_list.append(elements)
                 else:
                     for i, line in enumerate(file):
-                        print(i)
-                        print(line)
+                        #print(i)
+                        #print(line)
                         if i>=start-1 and i<=end:
                             elements=line.strip('\n').split(',')
                             if elements[0]!='Date':
@@ -115,6 +115,6 @@ class NumericalCSVFile(CSVFile):
         return lista_lista
         
             
-file_csv= CSVFile('shampoo_sales.csv')
+#file_csv= CSVFile('shampoo_sales.csv')
 #file_csv.get_data()#end esplicito esempio end=5
-print('{}'.format(file_csv.get_data(1,8)))
+#print('{}'.format(file_csv.get_data(1,8)))
