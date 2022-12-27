@@ -1,9 +1,9 @@
 class CSVFile():
-    def _init_(self, name):
+    def __init__(self, name):
         self.name = name
         if type(name) != str:
             raise Exception('Errore 1')
-    def _str_(self):
+    def __str__(self):
         return 'Nome del file "{}"'.format(self.name)
         
     def get_data(self, start = None, end = None):
