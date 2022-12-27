@@ -70,13 +70,13 @@ class CSVFile:
                 file=open(self.name,'r')
                 if end is None:
                     for i, line in enumerate(file):
-                        if i>=start:
+                        if i>=start-1:
                             elements=line.strip('\n').split(',')
                             if elements[0]!='Date':
                                 list_list.append(elements)
                 else:
                     for i, line in enumerate(file):
-                        if i>=start and i<=end:
+                        if i>=start-1 and i<=end:
                             elements=line.strip('\n').split(',')
                             if elements[0]!='Date':
                                 list_list.append(elements)
@@ -109,4 +109,4 @@ class NumericalCSVFile(CSVFile):
             
 #file_csv= CSVFile('shampoo_sales.csv')
 #file_csv.get_data()#end esplicito esempio end=5
-#print('{}'.format(file_csv.get_data(4,9)))
+#print('{}'.format(file_csv.get_data(2)))
