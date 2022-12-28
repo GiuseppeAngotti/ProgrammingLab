@@ -28,10 +28,18 @@ class CSVFile():
             for line in file:
                     n_max=n_max+1
 
-            if not isinstance(start, int) and start is not None:
-                raise Exception('start va di tipo intero')
-            if not isinstance(end, int) and end is not None:
-                raise Exception('end va di tipo intero')
+            if type(start) is str and start.isdigit():
+                start = int(start)
+            elif type(start) is float:
+                start = int(start)
+            elif start is not None:
+                raise Exception("Non riesco a contertire start in intero")
+            if type(end) is str and end.isdigit():
+                end = int(end)
+            elif type(end) is float:
+                end = int(end)
+            elif end is not None:
+                raise Exception("Non riesco a contertire end in intero")
 
             if start is not None and end is not None and start>end:
                 raise Exception('Errore: start è maggiore di end')
@@ -82,8 +90,6 @@ class CSVFile():
                                 list_list.append(elements)
                 else:
                     for i, line in enumerate(file):
-                        #print(i)
-                        #print(line)
                         if i>=start-1 and i<end:
                             elements=line.strip('\n').split(',')
                             if elements[0]!='Date':
@@ -93,8 +99,8 @@ class CSVFile():
             return(list_list)
 
 class NumericalCSVFile(CSVFile):   
-    def get_data(self):#, *args, **kwargs
-        lista_lista=super().get_data()#*args, **kwargs
+    def get_data(self, *args, **kwargs):
+        lista_lista=super().get_data(*args, **kwargs)
         if lista_lista!=None:
         #print(lista_lista)
             for l in lista_lista:
@@ -117,4 +123,4 @@ class NumericalCSVFile(CSVFile):
             
 #file_csv= CSVFile('shampoo_sales.csv')
 #file_csv.get_data()#end esplicito esempio end=5
-#print('{}'.format(file_csv.get_data(1,8)))
+#print('{}'.format(file_csv.get_data('6',7.9)))
