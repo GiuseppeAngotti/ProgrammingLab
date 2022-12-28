@@ -60,7 +60,7 @@ class CSVFile():
                         list_list=[]
                     else:
                         for i, line in enumerate(file):
-                            if i<=end:
+                            if i<end:
                                 elements=line.strip('\n').split(',')
                                 if elements[0]!='Date':
                                     list_list.append(elements)
@@ -84,7 +84,7 @@ class CSVFile():
                     for i, line in enumerate(file):
                         #print(i)
                         #print(line)
-                        if i>=start-1 and i<=end:
+                        if i>=start-1 and i<end:
                             elements=line.strip('\n').split(',')
                             if elements[0]!='Date':
                                 list_list.append(elements)
