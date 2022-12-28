@@ -30,13 +30,13 @@ class CSVFile():
 
             if type(start) is str and start.isdigit():
                 start = int(start)
-            elif type(start) is float:
+            elif type(start) is int or type(start) is float:
                 start = int(start)
             elif start is not None:
                 raise Exception("Non riesco a contertire start in intero")
             if type(end) is str and end.isdigit():
                 end = int(end)
-            elif type(end) is float:
+            elif type(end) is int or type(end) is float:
                 end = int(end)
             elif end is not None:
                 raise Exception("Non riesco a contertire end in intero")
@@ -123,4 +123,4 @@ class NumericalCSVFile(CSVFile):
             
 #file_csv= CSVFile('shampoo_sales.csv')
 #file_csv.get_data()#end esplicito esempio end=5
-#print('{}'.format(file_csv.get_data('6',7.9)))
+#print('{}'.format(file_csv.get_data(8,9)))
