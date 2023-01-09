@@ -12,7 +12,8 @@ class Model():
 #la funzione predict()
 class IncrementModel(Model):
     def predict(self,data):
-
+        if type(data)!=list:
+            raise Exception("Errore l'input inserito non è una lista")
         if len(data)==1:
             raise Exception('Errore non posso fare una divisione per 0')
         succ=None
@@ -24,6 +25,8 @@ class IncrementModel(Model):
         i=-1
         val_prec=None
         for item in data:
+            if type(item)!=float or type(item)!=int:
+                raise Exception('Errore non posso lavorare con valori non numerici')
             if(val_prec!=None):
                 succ=item-val_prec
                 sum_suc+=succ
