@@ -14,7 +14,10 @@ class IncrementModel(Model):
     def predict(self,data):
         succ=None
         sum_suc=0
-        i=0
+        
+        #il valore corrente (t) non deve essere contato:
+        #se osservo l'esempio n=3 ma divide per 2
+        i=-1
         val_prec=None
         for item in data:
             if(val_prec!=None):
@@ -23,5 +26,5 @@ class IncrementModel(Model):
             val_prec=item
             i+=1
         
-        prediction=val_prec+sum_suc/i
+        prediction=val_prec+int(sum_suc/i)
         return prediction
