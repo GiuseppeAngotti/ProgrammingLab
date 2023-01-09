@@ -14,6 +14,7 @@ class IncrementModel(Model):
     def predict(self,data):
         succ=None
         sum_suc=0
+        prediction=None
         
         #il valore corrente (t) non deve essere contato:
         #se osservo l'esempio n=3 ma divide per 2
