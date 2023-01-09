@@ -27,6 +27,8 @@ class IncrementModel(Model):
             i+=1
 
         if i==0:
-            raise Exception('Errore non posso fare una divisione per 0')
-        prediction=val_prec+int(sum_suc/i)
+            prediction=val_prec
+            #raise Exception('Errore non posso fare una divisione per 0')
+        else:
+            prediction=val_prec+int(sum_suc/i)
         return prediction
