@@ -31,4 +31,5 @@ class IncrementModel(Model):
             #raise Exception('Errore non posso fare una divisione per 0')
         else:
             prediction=val_prec+int(sum_suc/i)
+            
         return prediction
