@@ -12,7 +12,6 @@ class Model():
 #la funzione predict()
 class IncrementModel(Model):
     def predict(self,data):
-            
         succ=None
         sum_suc=0
         prediction=None
