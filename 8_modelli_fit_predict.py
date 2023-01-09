@@ -12,8 +12,6 @@ class Model():
 #la funzione predict()
 class IncrementModel(Model):
     def predict(self,data):
-        if type(data)!=list:
-            raise TypeError('Il tipo di dati inserito non va bene')
         if len(data)<=1:
             raise Exception('Errore non posso prevedere dei dati avendo solo un valore')
         succ=None
@@ -25,6 +23,8 @@ class IncrementModel(Model):
         i=0
         val_prec=None
         for item in data:
+            if type(item)!=int:
+                raise TypeError('Il tipo di dati inserito non va bene')
             if(val_prec!=None):
                 succ=item-val_prec
                 sum_suc+=succ
