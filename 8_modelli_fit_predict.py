@@ -12,8 +12,6 @@ class Model():
 #la funzione predict()
 class IncrementModel(Model):
     def predict(self,data):
-        if len(data)<=1:
-            raise Exception('Errore non posso prevedere dei dati avendo solo un valore')
             
         succ=None
         sum_suc=0
@@ -21,18 +19,17 @@ class IncrementModel(Model):
         
         #il valore corrente (t) non deve essere contato:
         #se osservo l'esempio n=3 ma divide per 2
-        i=0
+        i=-1
         val_prec=None
         for item in data:
-            if type(item)!=int:
-                raise TypeError('Il tipo di dati inserito non va bene')
             if(val_prec!=None):
                 succ=item-val_prec
                 sum_suc+=succ
             val_prec=item
             i+=1
 
-            #raise Exception('Errore non posso fare una divisione per 0')
+        if i==0:
+            raise Exception('Errore non posso fare una divisione per 0')
         prediction=val_prec+int(sum_suc/i)
             
         return prediction
