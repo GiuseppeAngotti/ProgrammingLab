@@ -14,6 +14,7 @@ class IncrementModel(Model):
     def predict(self,data):
         if len(data)<=1:
             raise Exception('Errore non posso prevedere dei dati avendo solo un valore')
+            
         succ=None
         sum_suc=0
         prediction=None
