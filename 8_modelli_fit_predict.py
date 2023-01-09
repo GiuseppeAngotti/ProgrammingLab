@@ -12,6 +12,9 @@ class Model():
 #la funzione predict()
 class IncrementModel(Model):
     def predict(self,data):
+
+        if len(data)==1:
+            raise Exception('Errore non posso fare una divisione per 0')
         succ=None
         sum_suc=0
         prediction=None
@@ -27,8 +30,6 @@ class IncrementModel(Model):
             val_prec=item
             i+=1
   
-        if i==0:
-            raise Exception('Errore non posso fare una divisione per 0')
         prediction=val_prec+int(sum_suc/i)
             
         return prediction
