@@ -30,6 +30,7 @@ class IncrementModel(Model):
             val_prec=item
             i+=1
         prediction=val_prec+int(sum_suc/i)
+        
         return prediction
         
 ##per poter fare le PROVE
