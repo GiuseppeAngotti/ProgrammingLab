@@ -14,8 +14,8 @@ class IncrementModel(Model):
     def predict(self,data):
         if type(data) is not list:
             raise TypeError
-        if len(data)==1:
-            raise Exception('Errore non posso fare una divisione per 0')
+        if len(data)<=1:
+            raise Exception('Errore la lunghezza del file deve assere >1')
         succ=None
         sum_suc=0
         prediction=None
