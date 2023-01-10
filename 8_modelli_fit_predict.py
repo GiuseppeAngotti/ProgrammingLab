@@ -13,7 +13,7 @@ class Model():
 class IncrementModel(Model):
     def predict(self,data):
         if type(data) is not list:
-            raise Exception("Errore l'input inserito non è una lista")
+            raise TypeError
         if len(data)==1:
             raise Exception('Errore non posso fare una divisione per 0')
         succ=None
