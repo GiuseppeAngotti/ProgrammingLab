@@ -38,9 +38,9 @@ class IncrementModel(Model):
         return prediction
         
 ##per poter fare le PROVE
-values=[50,52,60]
+#values=[50,52,60]
 ##questo è un dizionario e non va bene 
 #values={'1':1}
 ##istanzio l'oggetto 'modello'
-increment_model=IncrementModel()
-print(increment_model.predict(values))
+#increment_model=IncrementModel()
+#print(increment_model.predict(values))
