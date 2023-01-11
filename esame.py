@@ -24,13 +24,12 @@ class MovingAverage():
         j=0
         
         for item in data:
-            
-            if type(item) is not float and type(item) is not int:
-                raise ExamException('Gli elementi della lista devono essere o float o intero')
             if n_volte!=j:
                 i=0
                 somma = 0
                 while i<self.finestra:
+                    if type(data[j+i]) is not float and type(data[j+i]) is not int:
+                        raise ExamException('Gli elementi della lista devono essere o float o intero')
                     somma+=data[j+i]
                     i+=1
                 elemento=somma/self.finestra
