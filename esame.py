@@ -20,22 +20,14 @@ class MovingAverage():
         lunghezza_lista=len(data)
         average_list=[]
         elemento=None
-        n_volte=0
-        if self.lung ==lunghezza_lista:
-            n_volte=1 
-        elif self.lung==1:
-            n_volte=lunghezza_lista
-        elif self.lung % 2==0:
-            n_volte=lunghezza_lista - 1
-        else:
-            n_volte=lunghezza_lista - 2
+        n_volte=lunghezza_lista-self.lung+1
         j=0
         for item in data:
             if n_volte!=j:
                 i=0
                 somma = 0
                 while i<self.lung:
-                    somma+=data[i+j]
+                    somma+=data[j+i]
                     i+=1
                 elemento=somma/self.lung
                 average_list.append(elemento)
@@ -43,6 +35,6 @@ class MovingAverage():
         
         return average_list
 
-moving_average = MovingAverage(1)
-result = moving_average.compute([2,4,8,16])
+moving_average = MovingAverage(4)
+result = moving_average.compute([2,4,8,16,32])
 print(result) # Deve stampare a schermo [3,6,12]
