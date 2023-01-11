@@ -2,8 +2,8 @@ class ExamException(Exception):
     pass
 
 class MovingAverage():
-    def __init__(self,finestra):
-        if finestra is not None and finestra < 1:
+    def __init__(self,finestra=None):
+        if finestra is None or finestra < 1:
             raise ExamException('La lunghezza della finestra deve essere maggiore o uguale a 1.')
         self.finestra=finestra
         
@@ -35,6 +35,6 @@ class MovingAverage():
         
         return average_list
 
-moving_average = MovingAverage(4)
+moving_average = MovingAverage()
 result = moving_average.compute([2,4,8,16,32])
 print(result) # Deve stampare a schermo [3,6,12]
