@@ -2,10 +2,10 @@ class ExamException(Exception):
     pass
 
 class MovingAverage():
-    def __init__(self,lung):
-        if lung < 1:
+    def __init__(self,finestra):
+        if finestra is not None and finestra < 1:
             raise ExamException('La lunghezza della finestra deve essere maggiore o uguale a 1.')
-        self.lung=lung
+        self.finestra=finestra
         
 
     def controllo_input(self, data):
@@ -20,16 +20,16 @@ class MovingAverage():
         lunghezza_lista=len(data)
         average_list=[]
         elemento=None
-        n_volte=lunghezza_lista-self.lung+1
+        n_volte=lunghezza_lista-self.finestra+1
         j=0
         for item in data:
             if n_volte!=j:
                 i=0
                 somma = 0
-                while i<self.lung:
+                while i<self.finestra:
                     somma+=data[j+i]
                     i+=1
-                elemento=somma/self.lung
+                elemento=somma/self.finestra
                 average_list.append(elemento)
                 j+=1
         
