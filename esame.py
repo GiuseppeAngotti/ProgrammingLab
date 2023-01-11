@@ -31,12 +31,12 @@ class MovingAverage():
                         raise ExamException('Gli elementi della lista devono essere o float o intero')
                     somma+=data[j+i]
                     i+=1
-                elemento=somma/self.finestra
+                elemento=somma/int(self.finestra)
                 average_list.append(elemento)
                 j+=1
         
         return average_list
 
-moving_average = MovingAverage(5)
+moving_average = MovingAverage()
 result = moving_average.compute([2,4,8,16,32])
 print(result) # Deve stampare a schermo [3,6,12]
