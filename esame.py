@@ -22,7 +22,6 @@ class MovingAverage():
         elemento=None
         n_volte=lunghezza_lista-self.finestra+1
         j=0
-        
         for item in data:
             if n_volte!=j:
                 i=0
