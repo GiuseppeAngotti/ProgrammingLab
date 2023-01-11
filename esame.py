@@ -35,6 +35,6 @@ class MovingAverage():
         
         return average_list
 
-moving_average = MovingAverage()
-result = moving_average.compute([2,4,8,16,32])
-print(result) # Deve stampare a schermo [3,6,12]
+#moving_average = MovingAverage()
+#result = moving_average.compute([2,4,8,16,32])
+#print(result) # Deve stampare a schermo [3,6,12]
