@@ -24,7 +24,8 @@ class MovingAverage():
         j=0
         
         for item in data:
-            if type(item) is not float or type(item) is not int:
+            
+            if type(item) is not float and type(item) is not int:
                 raise ExamException('Gli elementi della lista devono essere o float o intero')
             if n_volte!=j:
                 i=0
