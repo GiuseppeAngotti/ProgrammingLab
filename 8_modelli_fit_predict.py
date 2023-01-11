@@ -26,7 +26,7 @@ class IncrementModel(Model):
         i=-1
         val_prec=None
         for item in data:
-            if type(data) is not int and type(data) is not float:
+            if type(item) is not int and type(item) is not float:
                 raise TypeError
             if(val_prec!=None):
                 succ=item-val_prec
@@ -38,9 +38,9 @@ class IncrementModel(Model):
         return prediction
         
 ##per poter fare le PROVE
-#values=[None,52,60]
+values=[50,52,60]
 ##questo è un dizionario e non va bene 
 #values={'1':1}
 ##istanzio l'oggetto 'modello'
-#increment_model=IncrementModel()
-#print(increment_model.predict(values))
+increment_model=IncrementModel()
+print(increment_model.predict(values))
