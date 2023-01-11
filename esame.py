@@ -31,7 +31,7 @@ class MovingAverage():
                         raise ExamException('Gli elementi della lista devono essere o float o intero')
                     somma+=data[j+i]
                     i+=1
-                elemento=somma/int(self.finestra)
+                elemento=somma/self.finestra
                 average_list.append(elemento)
                 j+=1
         
