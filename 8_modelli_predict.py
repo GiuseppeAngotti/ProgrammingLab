@@ -43,4 +43,5 @@ class IncrementModel(Model):
 #values={'1':1}
 ##istanzio l'oggetto 'modello'
 #increment_model=IncrementModel()
-#print(increment_model.predict(values))
+#prediction=increment_model.predict(values)
+#print(prediction)

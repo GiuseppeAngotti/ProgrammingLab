@@ -1,28 +1,15 @@
 class Model():
-
- 
-
     def fit(self, data):
         raise NotImplementedError("Metodo non implementato.")
-
- 
-
     def predict(self, data):
         raise NotImplementedError("Metodo non implementato.")
-
- 
-
+        
 class IncrementModel(Model):
-
- 
-
     def _check_input_data(self, data):
         if type(data) is not list:
             raise TypeError
         if len(data) <= 1:
             raise Exception("La lunghezza del file deve essere > 1.")
-
- 
 
     def _compute_mean_increment(self, data):
         sum_increments = 0
@@ -32,17 +19,12 @@ class IncrementModel(Model):
         mean_increment = sum_increments / (len(data)-1)
         return mean_increment
 
- 
-
     def predict(self, data):
         self._check_input_data(data)
         mean_increment = self._compute_mean_increment(data)
         prediction = data[-1] + mean_increment
         return prediction
-
- 
-
-
+        
 class FitIncrementModel(IncrementModel):
 
     def predict(self, data):
