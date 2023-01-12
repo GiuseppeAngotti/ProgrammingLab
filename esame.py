@@ -41,6 +41,6 @@ class MovingAverage():
         
         return average_list
 
-moving_average = MovingAverage()
+moving_average = MovingAverage(5)
 result = moving_average.compute([2,4,8,16,32])
 print(result) # Deve stampare a schermo [3,6,12]
