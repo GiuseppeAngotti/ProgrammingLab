@@ -32,7 +32,7 @@ class Diff():
                 raise ExamException('Values are not int or float')
 
         result = []
-        for i in range(len(data) - 3):
+        for i in range(len(data) - self.window +1):
                 res = int((data[i+1] - data[i])/self.ratio)
                 result.append(res) 
                 
