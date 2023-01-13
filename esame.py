@@ -4,12 +4,19 @@ class ExamException(Exception):
 
 class Diff():
 
-    def __init__(self,ratio=1):
+    def __init__(self, window,ratio=1):
+        if type(window) != int:
+            raise ExamException('The value of the window is not a integer')
+
+        if window <= 0 or window > 2:
+            raise ExamException('The window is negative')
+
+        self.window = window
 
         if type(ratio) != int:
             raise ExamException('The value of the ratio is not a integer')
-        if ratio <= 0:
-            raise ExamException("The ratio can't be less than 0")
+        if ratio == 0:
+            raise ExamException("The ratio can't be 0")
         self.ratio=ratio
         
     def compute(self, data):
@@ -32,6 +39,6 @@ class Diff():
                 result.append(res)        
         return result
 
-diff = Diff(2)
+diff = Diff(2,2)
 result = diff.compute([2,4,8,16])
 print(result)
