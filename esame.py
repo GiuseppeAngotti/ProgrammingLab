@@ -4,7 +4,7 @@ class ExamException(Exception):
 
 class Diff():
 
-    def __init__(self, window,ratio=1):
+    def __init__(self, window=1,ratio=1):
         if type(window) != int:
             raise ExamException('The value of the window is not a integer')
 
