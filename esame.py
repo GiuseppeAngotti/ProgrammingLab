@@ -4,14 +4,7 @@ class ExamException(Exception):
 
 class Diff():
 
-    def __init__(self, window,ratio=1):
-        if type(window) != int:
-            raise ExamException('The value of the window is not a integer')
-
-        if window == 0:
-            raise ExamException('The window is negative')
-
-        self.window = window
+    def __init__(self,ratio=1):
 
         if type(ratio) != int:
             raise ExamException('The value of the ratio is not a integer')
@@ -34,15 +27,12 @@ class Diff():
             if type(i) is str:
                 raise ExamException('Values are not int or float')
 
-        if len(data) < self.window:
-            raise ExamException('The input data is shorter than the window')
-
         result = []
-        for i in range(len(data) - self.window + 1):
+        for i in range(len(data) - 3):
                 res = (data[i+1] - data[i])/self.ratio
                 result.append(res)        
         return result
 
-diff = Diff(2,2)
+diff = Diff(2)
 result = diff.compute([2,4,8,16])
 print(result)
