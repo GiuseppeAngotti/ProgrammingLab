@@ -25,8 +25,8 @@ class Diff():
         if type(data) is not list:
             raise ExamException('Input type is not a list')
 
-        if len(data) < 1:
-            raise ExamException('The list is empty')
+        if len(data) <= 1:
+            raise ExamException('The list is empty or formed by a singol element')
 
         for i in data:
             if type(i) is str:
