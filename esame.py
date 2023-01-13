@@ -8,7 +8,7 @@ class Diff():
 
         if type(ratio) != int:
             raise ExamException('The value of the ratio is not a integer')
-        if ratio == 0:
+        if ratio <= 0:
             raise ExamException("The ratio can't be 0")
         
         self.ratio=ratio
