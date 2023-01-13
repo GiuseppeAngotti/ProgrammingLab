@@ -35,7 +35,8 @@ class Diff():
         result = []
         for i in range(len(data) - 3):
                 res = (data[i+1] - data[i])/self.ratio
-                result.append(res)        
+                result.append(res) 
+            
         return result
 
 diff = Diff(2,2)
