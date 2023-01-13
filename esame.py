@@ -20,7 +20,6 @@ class Diff():
     def compute(self, data):
         if data is None:
             raise ExamException('No input data')
-
         if type(data) is not list:
             raise ExamException('Input type is not a list')
 
