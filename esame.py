@@ -10,7 +10,6 @@ class Diff():
 
         if window <= 0 or window > 2:
             raise ExamException('The window is negative')
-
         self.window = window
 
         if type(ratio) != int:
