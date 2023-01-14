@@ -11,10 +11,10 @@ class MovingAverage():
     def controllo_input(self, data):
         if type(data) is not list:
             raise ExamException('Errore, in input non è stata inserita una lista.')
-            
         if len(data) < 1:
             raise ExamException('La lunghezza della lista deve essere maggiore o uguale a 1.')
-
+        if data is None:
+            raise ExamException('No input data')
         if self.finestra > len(data):
             raise ExamException('La lunghezza della finestra deve essere più piccola della lunghezza della lista.')
         
@@ -41,6 +41,6 @@ class MovingAverage():
         
         return average_list
 
-moving_average = MovingAverage(2)
+moving_average = MovingAverage(4)
 result = moving_average.compute([2,4,8,16,32])
 print(result) # Deve stampare a schermo [3,6,12]
