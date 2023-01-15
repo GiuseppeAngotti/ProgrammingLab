@@ -1,12 +1,12 @@
 def __init__(self, ratio=1):     
-        if ratio is None:
-            raise ExamException("Errore: ratio è None.")
-        if type(ratio) is not int and type(ratio) is not float:
-            raise ExamException("Errre: ratio deve essere un intero o un float.")
-        if ratio < 1:
-            raise ExamException("Errore: ratio deve essere maggiore o uguale a 1.")
-        else:
-            self.ratio = ratio        
+    if ratio is None:
+        raise ExamException("Errore: ratio è None.")
+    if type(ratio) is not int and type(ratio) is not float:
+        raise ExamException("Errre: ratio deve essere un intero o un float.")
+    if ratio < 1:
+        raise ExamException("Errore: ratio deve essere maggiore o uguale a 1.")
+    else:
+        self.ratio = ratio        
 
     def compute(self, serie):
         # conrolli sull'input
