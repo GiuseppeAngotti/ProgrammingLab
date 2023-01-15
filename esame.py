@@ -22,8 +22,8 @@ class Diff():
         if len(data) <= 1:
             raise ExamException('The list is empty or formed by a singol element')
             
-        for i in data:
-            if type(i) is str and valore.isnumeric() is False:
+        for valore in data:
+            if type(valore) is str and valore.isnumeric() is False:
                 #mettendo una f davanti alla stringa 
                 #posso stampare il valore "formattare" i 
                 #valori dentro {}
