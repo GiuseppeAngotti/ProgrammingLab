@@ -8,23 +8,23 @@ def __init__(self, ratio=1):
     else:
         self.ratio = ratio        
 
-    def compute(self, serie):
-        # conrolli sull'input
-        if type(serie) is not list:
-            raise ExamException(f'Errore: l\'input di compute deve essere una lista e non {type(serie)}.')
-        elif len(serie) <= 1:
-            raise ExamException(f'Errore: la serie deve avere almeno due valori.')
-        else:
-            for valore in serie:
-                if type(valore) is str and valore.isnumeric() is False:
-                    raise ExamException(f"Errore: la serie contiene il valore non numerico {valore}.")
+def compute(self, serie):
+    # conrolli sull'input
+    if type(serie) is not list:
+        raise ExamException(f'Errore: l\'input di compute deve essere una lista e non {type(serie)}.')
+    elif len(serie) <= 1:
+        raise ExamException(f'Errore: la serie deve avere almeno due valori.')
+    else:
+        for valore in serie:
+            if type(valore) is str and valore.isnumeric() is False:
+                raise ExamException(f"Errore: la serie contiene il valore non numerico {valore}.")
 
-        # calcolo media mobile
-        lista_differenze = []
-        for i in range(len(serie)-1):
-            differenza = (serie[i+1] - serie[i]) / self.ratio
-            lista_differenze.append(differenza)
-        return lista_differenze
+    # calcolo media mobile
+    lista_differenze = []
+    for i in range(len(serie)-1):
+        differenza = (serie[i+1] - serie[i]) / self.ratio
+        lista_differenze.append(differenza)
+    return lista_differenze
 
 class ExamException(Exception):
     pass
