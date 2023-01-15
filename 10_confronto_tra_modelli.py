@@ -50,7 +50,12 @@ class IncrementModel(Model):
         errors = []
         for i in range(len(data) - self.finestra):
             prediction = self.predict(data[i:i + self.finestra])
+            #il meotodo abs() calcola il valore assoluto 
+            #di un numero, elimina il segno negativo.
             error = abs(data[i + self.finestra] - prediction)
+            #print(data[i + self.finestra])
+            #print(prediction)
+            #print(error)
             errors.append(error)
         return sum(errors) / len(errors)
 
@@ -66,19 +71,20 @@ class FitIncrementModel(IncrementModel):
         prediction = data[-1] + (increm_med + self.global_avg_increment) / 2
         return prediction
      
-##per poter fare le PROVE
-#values=[8, 19, 31, 41, 50, 52, 60, 67, 72, 72, 67, 72]
+##per poter fare le PROVE (in realtà non sono esatte)
+values=[8, 19, 31, 41, 50, 52, 60, 67, 72, 72, 67, 72]
 ##questo è un dizionario e non va bene 
 #values={'1':1}
 ##istanzio l'oggetto 'modello'
-#increment_model=IncrementModel(6)
+increment_model=IncrementModel(7)
 #prediction=increment_model.predict(values[4:7])
 #print(prediction)
-#valutazione_modello_senza_fit=increment_model.evaluate([8, 19, 31, 41, 50, 52, 60, 67, 72, 72, 67, 72])
-#print(valutazione_modello_senza_fit)
-#fitincrement_model=FitIncrementModel(6)
-#fitincrement_model.fit(values[:7])
+valutazione_modello_senza_fit=increment_model.evaluate([ 67, 72, 72, 67, 72])
+print(valutazione_modello_senza_fit)
+print('-------------------------------------')
+fitincrement_model=FitIncrementModel(7)
+fitincrement_model.fit(values[:7])
 #fit_prediction=fitincrement_model.predict(values)
 #print(fit_prediction)
-#valutazione_modello_con_fit=fitincrement_model.evaluate([8, 19, 31, 41, 50, 52, 60, 67, 72, 72, 67, 72])
-#print(valutazione_modello_con_fit)
+valutazione_modello_con_fit=fitincrement_model.evaluate([ 67, 72, 72, 67, 72])
+print(valutazione_modello_con_fit)
