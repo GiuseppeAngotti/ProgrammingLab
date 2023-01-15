@@ -30,7 +30,7 @@ class Diff():
                 raise ExamException(f"Errore: la serie contiene il valore non numerico {valore}.")
 
         result = []
-        for i in range(len(data) - self.window +1):
+        for i in range(len(data) - 1):
                 res = (data[i+1] - data[i])/self.ratio
                 result.append(res) 
                 
