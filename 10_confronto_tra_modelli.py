@@ -25,7 +25,8 @@ class IncrementModel(Model):
         if len(data)<=1:
             raise Exception('Errore la lunghezza del file deve essere >1')
         if data is None:
-            raise  Exception("non c'è nessun input")
+            #\' mi permette di stampare il carattere: '
+            raise  Exception('non c\'è nessun input')
         for item in data:
             if type(item) is not int and type(item) is not float:
                 raise TypeError

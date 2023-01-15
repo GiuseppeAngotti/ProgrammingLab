@@ -4,17 +4,13 @@ class ExamException(Exception):
 
 class Diff():
 
-    def __init__(self, window=1,ratio=1):
-        if type(window) != int:
-            raise ExamException('The value of the window is not a integer')
-
-        if window <= 0 or window > 2:
-            raise ExamException('The window is negative')
-        self.window = window
-        if type(ratio) != int:
-            raise ExamException('The value of the ratio is not a integer')
-        if ratio == 0:
-            raise ExamException("The ratio can't be 0")
+    def __init__(self,ratio=1):
+        if type(ratio) is not int and type(ratio) is not float:
+            raise ExamException("Errre: ratio deve essere un intero o un float.")
+        if ratio < 1:
+            raise ExamException("Errore: ratio deve essere maggiore o uguale a 1.")
+        if ratio is None:
+            raise ExamException("Errore: ratio è None.")
         self.ratio=ratio
         
     def compute(self, data):
@@ -27,16 +23,15 @@ class Diff():
             raise ExamException('The list is empty or formed by a singol element')
             
         for i in data:
-            if type(i) is str:
-                raise ExamException('Values are not int or float')
+            if type(i) is str and valore.isnumeric() is False:
+                #mettendo una f davanti alla stringa 
+                #posso stampare il valore "formattare" i 
+                #valori dentro {}
+                raise ExamException(f"Errore: la serie contiene il valore non numerico {valore}.")
 
         result = []
         for i in range(len(data) - self.window +1):
-                res = int((data[i+1] - data[i])/self.ratio)
+                res = (data[i+1] - data[i])/self.ratio
                 result.append(res) 
                 
         return result
-
-diff = Diff(2,2)
-result = diff.compute([2,4,8,16])
-print(result)
