@@ -29,9 +29,9 @@ class Diff():
                 #valori dentro {}
                 raise ExamException(f"Errore: la serie contiene il valore non numerico {valore}.")
 
-        result = []
+        lista_differenze = []
         for i in range(len(data) - 1):
                 res = (data[i+1] - data[i])/self.ratio
-                result.append(res) 
+                lista_differenze.append(res) 
                 
-        return result
+        return lista_differenze
