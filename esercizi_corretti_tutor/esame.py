@@ -1,3 +1,6 @@
+class ExamException(Exception):
+    pass
+
 class Diff():
 
     def __init__(self, ratio=1):     
@@ -27,6 +30,3 @@ class Diff():
             differenza = (serie[i+1] - serie[i]) / self.ratio
             lista_differenze.append(differenza)
         return lista_differenze
-
-class ExamException(Exception):
-    pass
