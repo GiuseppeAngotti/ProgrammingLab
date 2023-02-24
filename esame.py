@@ -138,20 +138,25 @@ def detect_similar_monthly_variations(time_series, years):
             except Exception:
                 s_y_sub.append(None)
                 second_y_subtracting = s_year_variation_list[i]
-
     var=[]
-    for k in range(13):
+    for k in range(12):
         if k == 0:   
             var_subtracting = f_y_sub[k]
-        
+
         elif k<12:
             try:
                 v=s_y_sub[k-1]-var_subtracting
-                var_subtracting = f_y_sub[k]
+                if v in range(-2,3):
+                    var.append(True)
+                else:
+                    var.append(False)
+                if k!=11:
+                    var_subtracting = f_y_sub[k]
             except Exception:
-                var.append(None)
-                print(k)
-                #var_subtracting = f_y_sub[k]
+                var.append(False)
+                if k!=11:
+                    var_subtracting = f_y_sub[k] 
+                
         
 
     print(f_year_variation_list)
